@@ -5,6 +5,10 @@ function E = WeakClassifierError(C, D, Y)
 % classifications. Calculates the weighted error of C, using the 0-1 cost
 % function.
 
+mask = find(C == Y);
+D(mask) = 0;
+E = sum(D);
+
 % You are not allowed to use a loop in this function.
 % This is for your own benefit, since a loop will be too slow to use
 % with a reasonable amount of Haar features and training images.
